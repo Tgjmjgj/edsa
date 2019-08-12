@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EDS">
+    <Style x:Key="_style_dummy"></Style>
+    <Style x:Key="_style_font_calibri14">
+        <Setter Property="Control.FontFamily" Value="Calibri" />
+        <Setter Property="Control.FontSize" Value="14" />
+        <Setter Property="Control.FontWeight" Value="Normal" />
+    </Style>
+    <Style x:Key="_style_font_calibri16">
+        <Setter Property="Control.FontFamily" Value="Calibri" />
+        <Setter Property="Control.FontSize" Value="16" />
+        <Setter Property="Control.FontWeight" Value="Normal" />
+    </Style>
+    <Style x:Key="_big_gray_text20">
+        <Setter Property="Control.Foreground" Value="#FF858484"></Setter>
+        <Setter Property="Control.FontFamily" Value="Georgia"></Setter>
+        <Setter Property="Control.FontSize" Value="20"></Setter>
+        <Setter Property="Control.Opacity" Value="0.8"></Setter>
+    </Style>
+    <Style x:Key="_big_black_text20">
+        <Setter Property="Control.Foreground" Value="Black"></Setter>
+        <Setter Property="Control.FontFamily" Value="Georgia"></Setter>
+        <Setter Property="Control.FontSize" Value="20"></Setter>
+    </Style>
+    <Style x:Key="_big_viol_text28">
+        <Setter Property="Control.Foreground" Value="#FF665FAE"></Setter>
+        <Setter Property="Control.FontFamily" Value="Georgia"></Setter>
+        <Setter Property="Control.FontSize" Value="28"></Setter>
+    </Style>
+    <Style x:Key="_italic_roman_text">
+        <Setter Property="Control.FontFamily" Value="Times New Roman"></Setter>
+        <Setter Property="Control.FontStyle" Value="Italic"></Setter>
+        <Setter Property="Control.FontSize" Value="14"></Setter>
+    </Style>
+    <Style x:Key="_error_normal_text">
+        <Setter Property="Control.FontFamily" Value="Times New Roman"></Setter>
+        <Setter Property="Control.FontStyle" Value="Italic"></Setter>
+        <Setter Property="Control.FontSize" Value="14"></Setter>
+        <Setter Property="Control.FontSize" Value="14"></Setter>
+        <Setter Property="Control.Foreground" Value="Red"></Setter>
+    </Style>
+    <Style x:Key="_caution_normal_text">
+        <Setter Property="Control.FontFamily" Value="Times New Roman"></Setter>
+        <Setter Property="Control.FontStyle" Value="Italic"></Setter>
+        <Setter Property="Control.FontSize" Value="14"></Setter>
+        <Setter Property="Control.Foreground" Value="Orange"></Setter>
+    </Style>
+    <Style x:Key="_valid_normal_text">
+        <Setter Property="Control.FontFamily" Value="Times New Roman"></Setter>
+        <Setter Property="Control.FontStyle" Value="Italic"></Setter>
+        <Setter Property="Control.FontSize" Value="14"></Setter>
+        <Setter Property="Control.Foreground" Value="Green"></Setter>
+    </Style>
+    <Style x:Key="_report_text_style">
+        <Setter Property="Control.FontSize" Value="16"></Setter>
+        <Setter Property="Control.Margin" Value="20,2,0,0"></Setter>
+        <Setter Property="Control.FontFamily" Value="Georgia"></Setter>
+        <Setter Property="Control.HorizontalAlignment" Value="Left"></Setter>
+    </Style>
+</ResourceDictionary>

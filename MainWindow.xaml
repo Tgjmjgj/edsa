@@ -1,0 +1,21 @@
+﻿<Window x:Class="EDS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EDS"
+        mc:Ignorable="d"
+        Title="EDS" Background="White" Width="1280" Height="760" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="back_column" Width="0"></ColumnDefinition>
+            <ColumnDefinition Name="frame_left_column" Width="1*"></ColumnDefinition>
+            <ColumnDefinition Name="frame_right_column" Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Name="back_nav_button" Grid.Column="0" Width="40" Height="40" Margin="8,0,8,8" VerticalAlignment="Top" Click="Back_nav_button_Click">
+            <Image Source="Images/ExplorerNode/BackNav.png"></Image>
+        </Button>
+        <Frame Name="frame_left" Grid.Column="1" BorderBrush="Black" BorderThickness="1" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Name="frame_right" Grid.Column="2" BorderBrush="Black" BorderThickness="1" NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>

@@ -1,0 +1,48 @@
+﻿<Page x:Class="EDS.PageExplorer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EDS"
+      mc:Ignorable="d" 
+      d:DesignHeight="740" d:DesignWidth="892"
+      Title="page_explorer" Loaded="Page_Loaded"
+      Name="page_explorer">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <local:ExplorerListBox Grid.Row="0" x:Name="explorer" HeightNode="20" Width="{Binding ElementName=page_explorer, Path=ActualWidth}" 
+                               Height="{Binding ElementName=page_explorer, Path=ActualHeight}" Padding="16">
+        </local:ExplorerListBox>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Name="scheme_status_textblock" Grid.Row="0" Text="Схема не выбрана" Style="{StaticResource _big_viol_text28}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <Grid Name="keys_grid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Ключи:" Style="{StaticResource _style_font_calibri16}" Margin="40,0,0,0" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Name="filename_textblock" Grid.Column="1" Text="файл" Style="{StaticResource _style_font_calibri16}" VerticalAlignment="Center"></TextBlock>
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock Text="Публичный:" VerticalAlignment="Center" Margin="4,0,8,0" Style="{StaticResource _style_font_calibri16}"></TextBlock>
+                    <Image Name="public_key_image" Source="Images/ExplorerNode/No.png" Width="32" Height="32" Margin="4"></Image>
+                </StackPanel>
+                <StackPanel Grid.Column="3" Orientation="Horizontal">
+                    <TextBlock Text="Секретный:" VerticalAlignment="Center" Margin="4,0,8,0" Style="{StaticResource _style_font_calibri16}"></TextBlock>
+                    <Image Name="private_key_image" Source="Images/ExplorerNode/No.png" Width="32" Height="32" Margin="4"></Image>
+                </StackPanel>
+            </Grid>
+            <Button Name="select_scheme_button" Grid.Row="2" Content="ВЫБОР СХЕМЫ" Width="240" Height="40" Margin="8" Click="Select_scheme_button_Click"></Button>
+        </Grid>
+    </Grid>
+</Page>

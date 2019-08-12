@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="EDS.TextBoxGenerate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDS"
+             mc:Ignorable="d" 
+             Height="40" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel Margin="1" Grid.Row="0">
+            <Button Name="down_button" DockPanel.Dock="Right" Width="24" Click="Down_button_Click">
+                <Image Source="Images/EDS/Down.png" Stretch="Fill"/>
+            </Button>
+            <TextBox Name="value_textbox"></TextBox>
+        </DockPanel>
+        <Grid Name="hidden_down_grid" Margin="1,0,1,1" Grid.Row="1" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="down_text" Grid.Column="0" Margin="8,0,0,0" Width="Auto" Text="Порядок:"></TextBlock>
+            <TextBox Name="down_textbox" Grid.Column="1" HorizontalAlignment="Stretch" Margin="2,0,8,0"></TextBox>
+            <Button Name="gen_button" Grid.Column="2" Content="Сгенерировать" Click="OnGenButtonClick"></Button>
+        </Grid>
+    </Grid>
+</UserControl>

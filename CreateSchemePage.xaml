@@ -1,0 +1,167 @@
+﻿<Page x:Class="EDS.CreateSchemePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:oxy="http://oxyplot.org/wpf"
+      xmlns:local="clr-namespace:EDS"
+      mc:Ignorable="d"
+      Title="CreateSchemePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition MinHeight="264" Height="1*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="320"></ColumnDefinition>
+            <ColumnDefinition MinWidth="320"></ColumnDefinition>
+            <ColumnDefinition Width="4"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Separator Grid.Column="2" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" >
+            <Separator.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.LayoutTransform>
+        </Separator>
+        <DockPanel Grid.Row="0" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock x:Name="textBlock_info" Style="{StaticResource _italic_roman_text}" DockPanel.Dock="Top" TextAlignment="Justify" Padding="15,10,15,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" TextWrapping="Wrap" />
+            <Image x:Name="image_info" DockPanel.Dock="Top" VerticalAlignment="Top" Margin="25,0,25,40" MaxHeight="40" />
+        </DockPanel>
+        <GroupBox Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="8,8,8,2" >
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Название схемы:" Margin="4,0,12,0"></TextBlock>
+                    <TextBox Name="scheme_name_textbox" Width="100" KeyDown="Scheme_name_textbox_KeyDown"></TextBox>
+                </StackPanel>
+            </GroupBox.Header>
+            <GroupBox.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Margin="8,8,8,32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Header="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" GotFocus="StackPanel_p_GotFocus">
+                                <TextBlock Name="warn_text_p" Style="{StaticResource _error_normal_text}" TextWrapping="Wrap"></TextBlock>
+                                <TextBlock Text="Размер поля p:" Margin="10,10,0,0"></TextBlock>
+                                <local:TextBoxGenerate x:Name="gen_textbox_p" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="16,4,10,0" >                                </local:TextBoxGenerate>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" GotFocus="StackPanel_ab_GotFocus">
+                                <TextBlock Name="warn_text_a" Style="{StaticResource _error_normal_text}" TextWrapping="Wrap"></TextBlock>
+                                <TextBlock Text="Коэффициент a:" Margin="10,0,0,0"></TextBlock>
+                                <local:TextBoxGenerate x:Name="gen_textbox_a" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="16,4,10,0"></local:TextBoxGenerate>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" GotFocus="StackPanel_ab_GotFocus">
+                                <TextBlock Name="warn_text_b" Style="{StaticResource _error_normal_text}" TextWrapping="Wrap"></TextBlock>
+                                <TextBlock Text="Коэффициент b:" Margin="10,0,0,0"></TextBlock>
+                                <local:TextBoxGenerate x:Name="gen_textbox_b" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="16,4,10,0"></local:TextBoxGenerate>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Margin="40,8,8,32" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Header="2">
+                        <Grid Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button Name="schoof_button" Grid.Column="0" Grid.Row="0" Content="Вычислить" Width="120" Click="Schoof_button_Click" Margin="4" GotFocus="N_GotFocus"></Button>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Порядок кривой #E(Fp):" Margin="4" HorizontalAlignment="Center"></TextBlock>
+                            <TextBox Name="schoof_value" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" IsReadOnly="True" Margin="4" GotFocus="N_GotFocus"></TextBox>
+                            <Button Name="schoof_stop_button" Grid.Column="1" Grid.Row="2" Content="Остановить" Width="80" Margin="2" HorizontalAlignment="Right" Visibility="Hidden" Click="Schoof_stop_button_Click"></Button>
+                            <TextBlock Name="timer_textblock" Grid.Column="2" Grid.Row="2" Text="HH:mm:ss" HorizontalAlignment="Right" Margin="4,4,20,4" Visibility="Hidden"></TextBlock>
+
+                            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="r_min:" Margin="8,0,0,0" Width="40"></TextBlock>
+                                <TextBox Name="r_min_textbox" Grid.Column="1" Width="60" KeyDown="Textbox_KeyDigitDown" Text="15" GotFocus="Rmin_Lmax_GotFocus"></TextBox>
+                                <TextBlock Grid.Column="2" Text="L_max:" Width="40" Margin="8,0,0,0"></TextBlock>
+                                <TextBox Name="l_max_textbox" Grid.Column="3" Width="60" KeyDown="Textbox_KeyDigitDown" HorizontalAlignment="Left" Text="5" GotFocus="Rmin_Lmax_GotFocus"></TextBox>
+                            </Grid>
+                            <Button Name="n_button" Grid.Column="0" Grid.Row="4" Content="Рассчитать" Width="120" Click="N_h_button_Click" Margin="4" GotFocus="N_h_GotFocus"></Button>
+                            <TextBlock Grid.Column="0" Grid.Row="5" Text="Порядок группы точек n:" Margin="4" HorizontalAlignment="Center"></TextBlock>
+                            <TextBox Name="n_value" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" IsReadOnly="True" Margin="4" GotFocus="N_h_GotFocus"></TextBox>
+                            <TextBlock Grid.Column="0" Grid.Row="6" Text="Кофактор h:" Margin="4" HorizontalAlignment="Center"></TextBlock>
+                            <TextBox Name="h_value" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" IsReadOnly="True" Margin="4" GotFocus="N_h_GotFocus"></TextBox>
+                            <TextBlock Name="warn_text_n" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" Style="{StaticResource _caution_normal_text}" TextWrapping="Wrap"></TextBlock>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Margin="40,8,8,32" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Header="3" GotFocus="G_GotFocus">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Генерирующай точка G:" Margin="4" HorizontalAlignment="Center"></TextBlock>
+                            <Button Name="find_point_button" Grid.Row="1" Content="Найти точку" Width="120" Margin="4" Click="Find_point_button_Click"></Button>
+                            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Text="Gx:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                                <TextBox Grid.Column="1" Grid.Row="0" Name="Gx_textbox" IsReadOnly="True" Margin="4,4,8,4" HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text="Gy:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                                <TextBox Grid.Column="1" Grid.Row="1" Name="Gy_textbox" IsReadOnly="True" Margin="4,4,8,4" HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
+                            </Grid>
+                            <TextBlock Name="warn_text_g" Grid.Row="3" Style="{StaticResource _error_normal_text}" TextWrapping="Wrap"></TextBlock>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </GroupBox.Content>
+        </GroupBox>
+        <Grid Grid.Row="2" Grid.Column="0" Margin="12,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Сложность:" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <TextBox Name="complexity_rand_scheme" Grid.Column="1" Margin="8" Width="40" Height="20" HorizontalAlignment="Right" Text="10" KeyDown="Textbox_KeyDigitDown"></TextBox>
+            <Button Name="random_button" Grid.Column="2" Content="Поиск случайной схемы" HorizontalAlignment="Stretch" Height="32" Margin="4" Click="Random_button_Click"></Button>
+        </Grid>
+        <Button Name="save_scheme_button" Grid.Row="2" Grid.Column="1" Content="Сохранить" Margin="4,4,4,16" Height="32" Width="200" Click="Save_scheme_button_Click"></Button>
+        <Image Name="plotview" Grid.Column="3" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Bottom" Source="Images/Curve.png"></Image>
+    </Grid>
+</Page>

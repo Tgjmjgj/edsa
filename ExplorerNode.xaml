@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="EDS.ExplorerNode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDS"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="600"
+             Name="explorer_node"
+             Width="Auto" MinWidth="600"
+             >
+    <UserControl.Resources>
+        <ImageBrush x:Key="eds_state_empty_brush" ImageSource="Images/ExplorerNode/EmptyCircle.png" Stretch="Uniform"></ImageBrush>
+        <ImageBrush x:Key="eds_state_yellow_brush" ImageSource="Images/ExplorerNode/YellowCircle.png" Stretch="Uniform"></ImageBrush>
+        <ImageBrush x:Key="eds_state_green_brush" ImageSource="Images/ExplorerNode/GreenCircle.png" Stretch="Uniform"></ImageBrush>
+        <ImageBrush x:Key="eds_state_red_brush" ImageSource="Images/ExplorerNode/RedCircle.png" Stretch="Uniform"></ImageBrush>
+        <Style x:Key="style_expl_eds_state" TargetType="Rectangle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=explorer_node, Path=EdsState}" Value="0">
+                    <Setter Property="Fill" Value="{StaticResource ResourceKey=eds_state_empty_brush}"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=explorer_node, Path=EdsState}" Value="1">
+                    <Setter Property="Fill" Value="{StaticResource ResourceKey=eds_state_yellow_brush}"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=explorer_node, Path=EdsState}" Value="2">
+                    <Setter Property="Fill" Value="{StaticResource ResourceKey=eds_state_green_brush}"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=explorer_node, Path=EdsState}" Value="3">
+                    <Setter Property="Fill" Value="{StaticResource ResourceKey=eds_state_red_brush}"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource _style_font_calibri14}">
+            <Setter Property="Padding" Value="8,0,0,0"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding ElementName=explorer_node, Path=Height}"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Name="expl_ico" Grid.Column="0"></Image>
+        <TextBlock Name="expl_name" Grid.Column="1" Text="Имя файла"></TextBlock>
+        <TextBlock Name="expl_chng_date" Grid.Column="2" Text="Пн 10.03.17 12:21"></TextBlock>
+        <TextBlock Name="expl_type" Grid.Column="3" Text="Файл"></TextBlock>
+        <TextBlock Name="expl_size" Grid.Column="4" Text="0 Кб"></TextBlock>
+        <Rectangle Name="expl_state" Grid.Column="5" Style="{StaticResource ResourceKey=style_expl_eds_state}" Margin="1" Visibility="Hidden">
+        </Rectangle>
+    </Grid>
+</UserControl>
